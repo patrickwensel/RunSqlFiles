@@ -38,13 +38,15 @@ static void Run(string fileName, string connectionString)
                 conn.Open(); 
                 if (conn.State == ConnectionState.Open)
                 {
+                    Console.WriteLine("\r\n");
                     cmd.ExecuteScalar();
                     Console.WriteLine("Successfully executed: " + line);
-                    Console.WriteLine("\r\n");
+                    
                 }
             }
             catch (Exception exp)
             {
+                Console.WriteLine("Error executing: " + line);
                 Console.Write(exp.Message);
             }
             finally
